@@ -18,25 +18,26 @@
     $productos ['iPhone'] = 1000; 
     $productos ['Tostadora'] = 75; 
       
-   echo "A car costs $".$products['Car']."</p>";
-   foreach ( $productos  as  $key => $value ) {
-   echo "<p> El" . $key . "cuesta" . $value . "</p>" ;
+   $taxRate=0.0825;
+   
+   function tax_calc($amount,$tax){
+   $addedTax = $amount*$tax;
+   $amountWithTax = round($amount+$addedTax,2);
+   return $amountWithTax;
    }
+   
+   foreach($products as $key => $value){
+   $costWithTax = tax_calc($value,$taxRate);
+   echo "<p>The ".$key." costs ".$costWithTax." with tax</p>";
+   }
+   
    echo "<h2>Items you can afford</h2>";
    
    foreach($products as $key => $value){
-   if($value <= $credit ){
+   $costWithTax = tax_calc($value,$taxRate);
+   if($costWithTax <= $credit ){
    echo "<p>".$key."</p>"; 
    }
-   
-   $amount=800;
-   $taxRate=0.0825;
-   $addedTax= $amount*$taxRate;  //amount = 800, tax = .0825
-   echo $addedTax;
-   función tax_calc ($ monto, $ impuesto) {
-   $ Calculate_tax = $ monto * $ impuesto;
-   $ cantidad = ronda ($ cantidad + $ Calculate_tax, 2);
-   devolver $ monto;
    }
    ?>
   </body> 
