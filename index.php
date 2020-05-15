@@ -18,7 +18,9 @@
     $ productos ['iPhone'] = 1000; 
     $ productos ['Tostadora'] = 75; 
       
-   echo "A car costs $".$products['Car'].</p>";
-      
+   echo "A car costs $".$products['Car']."</p>";
+   foreach ( $ productos  como  $ clave => $ valor ) {
+   echo "<p> El" . $ clave . "costos" . $ valor . "</p>" ;
+   }
   </body> 
 </html >
